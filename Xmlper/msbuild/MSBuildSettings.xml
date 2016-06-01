@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/MsBuild/2003" 
+         DefaultTargets="StandardCompression;TransformCompression;ValidateCompression;XPathCompression">
+  <UsingTask
+      TaskName="CompressorTask"
+      AssemblyFile="Yahoo.Yui.Compressor.dll" />
+
+
+
+  <Target Name="TransformCompression">
+    <ItemGroup>
+      <TransformCssFiles Include="..\css\Transform.aspx.css" />
+      <TransformJavaScriptFiles Include="..\js\Transform.aspx.js" />
+    </ItemGroup>
+    <CompressorTask
+        CssFiles="@(TransformCssFiles)"
+        DeleteCssFiles="false"
+        CssOutputFile="..\css\Transform.aspx.min.css"
+        CssCompressionType="YuiStockCompression"
+        JavaScriptFiles="@(TransformJavaScriptFiles)"
+        ObfuscateJavaScript="True"
+        PreserveAllSemicolons="False"
+        DisableOptimizations="Nope"
+        EncodingType="Default"
+        DeleteJavaScriptFiles="false"
+        LineBreakPosition="-1"
+        JavaScriptOutputFile="..\js\Transform.aspx.min.js"
+        LoggingType="ALittleBit"
+        ThreadCulture="en-au"
+        IsEvalIgnored="false"
+            />
+  </Target>
+
+  <Target Name="XPathCompression">
+    <ItemGroup>
+      <XPathCssFiles Include="..\css\XPath.aspx.css" />
+      <XPathJavaScriptFiles Include="..\js\XPath.aspx.js" />
+    </ItemGroup>
+    <CompressorTask
+        CssFiles="@(XPathCssFiles)"
+        DeleteCssFiles="false"
+        CssOutputFile="..\css\XPath.aspx.min.css"
+        CssCompressionType="YuiStockCompression"
+        JavaScriptFiles="@(XPathJavaScriptFiles)"
+        ObfuscateJavaScript="True"
+        PreserveAllSemicolons="False"
+        DisableOptimizations="Nope"
+        EncodingType="Default"
+        DeleteJavaScriptFiles="false"
+        LineBreakPosition="-1"
+        JavaScriptOutputFile="..\js\XPath.aspx.min.js"
+        LoggingType="ALittleBit"
+        ThreadCulture="en-au"
+        IsEvalIgnored="false"
+            />
+  </Target>
+
+  <Target Name="ValidateCompression">
+    <ItemGroup>
+      <ValidateCssFiles Include="..\css\Validate.aspx.css" />
+      <ValidateJavaScriptFiles Include="..\js\Validate.aspx.js" />
+    </ItemGroup>
+    <CompressorTask
+        CssFiles="@(ValidateCssFiles)"
+        DeleteCssFiles="false"
+        CssOutputFile="..\css\Validate.aspx.min.css"
+        CssCompressionType="YuiStockCompression"
+        JavaScriptFiles="@(ValidateJavaScriptFiles)"
+        ObfuscateJavaScript="True"
+        PreserveAllSemicolons="False"
+        DisableOptimizations="Nope"
+        EncodingType="Default"
+        DeleteJavaScriptFiles="false"
+        LineBreakPosition="-1"
+        JavaScriptOutputFile="..\js\Validate.aspx.min.js"
+        LoggingType="ALittleBit"
+        ThreadCulture="en-au"
+        IsEvalIgnored="false"
+            />
+  </Target>
+  
+  <Target Name="StandardCompression">
+    
+            <!--ItemGroup\CssFiles or ItemGroup\JavaScriptFiles: add zero to many files you wish to include in this compression task.
+                                                             Don't forget, you can use the wildcard (eg. *.css, *.js) if you feel up to it.
+                                                             Finally, at least one item is required - either a css file or a js file.
+                                                             
+            CssFiles/JavaScriptFiles data format: Please do not touch this.
+            DeleteCssFiles: [Optional] True | Yes | Yeah | Yep | True | FoSho | Fo Sho. Default is False. Anything else is False. (eg. blah = false, xxxx111 = false, etc)
+            CssCompressionType: YuiStockCompression | MichaelAshsRegexEnhancements | HaveMyCakeAndEatIt or BestOfBothWorlds or Hybrid; Default is YuiStockCompression.
+            ObfuscateJavaScript: [Optional] refer to DeleteCssFiles, above.
+            PreserveAllSemicolons: [Optional] refer to DeleteCssFiles, above.
+            DisableOptimizations: [Optional] refer to DeleteCssFiles, above.
+            EncodingType: [Optional] ASCII, BigEndianUnicode, Unicode, UTF32, UTF7, UTF8, Default. Default is 'Default'.
+            DeleteJavaScriptFiles: [Optional] refer to DeleteCssFiles, above.
+            LineBreakPosition: [Optional] the position where a line feed is appened when the next semicolon is reached. Default is -1 (never add a line break).
+                               0 (zero) means add a line break after every semicolon. (This might help with debugging troublesome files).          
+            LoggingType: None | ALittleBit | HardcoreBringItOn;  Hardcore also lists javascript verbose warnings, if there are any (and there usually is :P ).
+            ThreadCulture: [Optional] the culture you want the thread to run under. Default is 'en-gb'.
+            IsEvalIgnored: [Optional] compress any functions that contain 'eval'. Default is False, which means a function that contains
+                           'eval' will NOT be compressed. It's deemed risky to compress a function containing 'eval'. That said,
+                           if the usages are deemed safe this check can be disabled by setting this value to True.-->
+        
+    <ItemGroup>
+       <CssFiles Include="..\css\*-*.css" />
+      <JavaScriptFiles Include="..\js\*-*.js" />
+      
+
+    </ItemGroup>
+    <CompressorTask
+        CssFiles="@(CssFiles)"
+        DeleteCssFiles="false"
+        CssOutputFile="..\css\combined.min.css"
+        CssCompressionType="YuiStockCompression"
+        JavaScriptFiles="@(JavaScriptFiles)"
+        ObfuscateJavaScript="True"
+        PreserveAllSemicolons="False"
+        DisableOptimizations="Nope"
+        EncodingType="Default"
+        DeleteJavaScriptFiles="false"
+        LineBreakPosition="-1"
+        JavaScriptOutputFile="..\js\combined.min.js"
+        LoggingType="ALittleBit"
+        ThreadCulture="en-au"
+        IsEvalIgnored="false"
+            />
+  </Target>
+
+  
+
+  
+</Project>

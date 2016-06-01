@@ -1,0 +1,39 @@
+﻿
+#menu .selected
+{
+	width:100px;
+}
+
+#menu .selected.xpathSelected
+{
+	width:50px;
+}
+
+#menu .selected.transformSelected
+{
+	width:120px;
+}
+
+#menu .selected.validationSelected
+{
+	width:130px;
+}
+
+.split
+{
+	width:50%;
+	
+}
+
+/*For some reason the split tab contaner cant work out
+its heiht, so we will tell i explictly what it is*/
+#inputTabs #splitTab
+{
+	height:320px;
+}
+
+#executeButton
+{
+	height:30px;
+}
+

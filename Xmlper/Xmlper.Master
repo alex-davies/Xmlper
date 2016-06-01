@@ -1,0 +1,89 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Xmlper.master.cs" Inherits="Xmlper.Xmlper" %><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head runat="server">
+    <title>XMLper</title>
+    
+    <meta name="description" content="Online XML tools to help develop XSLT, XSD schemas and XPath" />
+    <meta name="keywords" content="XML, XSLT, XSL, xpath, xml transformation, XSD, schema validation" />
+
+    <link rel="shortcut icon" href="favicon.ico" mce_href="favicon.ico"/>
+    <% 
+        if (HttpContext.Current.IsDebuggingEnabled) { %>
+
+        <link rel="Stylesheet" type="text/css" href="css/02-jquery-ui-1.8rc1.custom.css" />
+        <link rel="Stylesheet" type="text/css" href="css/03-layout.css" />
+        <link rel="Stylesheet" type="text/css" href="css/04-simpleTabs.css" />
+        <link rel="Stylesheet" type="text/css" href="css/05-lineNumbers.css" />
+        <link rel="Stylesheet" type="text/css" href="css/codemirror/codemirror.css" />
+        <link rel="Stylesheet" type="text/css" href="css/codemirror/xmlcolors.css" />
+            
+        <script type="text/javascript" src="js/01-jquery-1.4.1.min.js"></script>
+        <script type="text/javascript" src="js/02-jquery-ui-1.8rc1.custom.min.js"></script>
+        <script type="text/javascript" src="js/codemirror/codemirror.js"></script>
+        <script type="text/javascript" src="js/codemirror/xml.js"></script>
+        
+        <script type="text/javascript" src="js/04-jquery.transform.server.js"></script>
+        <script type="text/javascript" src="js/05-default.js"></script>
+        
+    <% } else { %>
+        <link rel="Stylesheet" type="text/css" href="css/combined.min.css" />
+        <script type="text/javascript" src="js/combined.min.js"></script>
+    <% } %>
+    
+    <!--[if IE 6]> 
+        <link rel="stylesheet" type="text/css" href="css/ie6.css" /> 
+        <script type="text/javascript" src="js/ie6.js" ></script>
+    <![endif]--> 
+
+    <asp:ContentPlaceHolder ID="Head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+
+<div id="frame">
+    <div id="header">
+    
+        <h1><span class="tag">&lt;</span>XMLper<span class="tag">/&gt;</span></h1>
+        <ul id="menu">
+            <li>
+                <a href="Transform.aspx">XSLT Transform</a>
+                <asp:ContentPlaceHolder runat="server" ID="TransfromMenuItem" />
+            </li>
+            <li>
+                <a href="Validate.aspx">Schema Validation</a>
+                <asp:ContentPlaceHolder runat="server" ID="ValidateMenuItem" />
+            </li>
+            <li>
+                <a href="XPath.aspx">XPath</a>
+                 <asp:ContentPlaceHolder runat="server" ID="XPathMenuItem" />
+            </li>
+        </ul>
+
+    </div>
+    
+
+
+    <div id="content" class="tabs-body">
+        <asp:ContentPlaceHolder ID="Content" runat="server">
+        </asp:ContentPlaceHolder>
+        <div class="banner-ad">
+           <script type="text/javascript">
+               //<!--
+               google_ad_client = "ca-pub-7010591394198418";
+               /* XMLper */
+               google_ad_slot = "1128508218";
+               google_ad_width = 728;
+               google_ad_height = 90;
+                //-->
+                </script>
+                <script type="text/javascript"
+                src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                </script>
+        </div>  
+    </div>
+    <div id="footer"></div>
+</div>
+        
+
+</body>
+</html>

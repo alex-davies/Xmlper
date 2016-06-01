@@ -1,0 +1,29 @@
+﻿.simple-tabs
+{
+	border:none;
+	background:none;
+}
+
+.simple-tabs .ui-tabs-panel
+{
+	border: solid 1px #79B7E7;
+	overflow:hidden;
+	padding:0px;
+	-moz-border-radius:0px;
+	border-radius:0px;
+}
+
+.simple-tabs .ui-widget-header
+{
+	background-color: Transparent;
+	background-image: none;
+	font-size:0.9em;
+	line-height:0.5;
+	border:none;
+	
+}
+
+.simple-tabs .ui-state-active, .ui-widget-content .ui-state-active
+{
+	background:#F5F8F9;
+}
